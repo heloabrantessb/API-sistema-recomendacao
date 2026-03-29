@@ -11,3 +11,25 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Usuario {
+  id Int @id @default(autoincrement())
+  nome String
+  preferencias Categoria[]
+  criado_em DateTime @default(now())
+  atualizado_em DateTime @updatedAt
+}
+
+model Categoria {
+  id Int @id @default(autoincrement())
+  titulo String @unique  
+
+  usuarios Usuario[]
+  locais Local[]
+}
+
+model Local {
+  id Int @id @default(autoincrement())
+  nome String 
+  categorias Categoria[]
+}
