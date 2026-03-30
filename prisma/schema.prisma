@@ -32,5 +32,15 @@ model Local {
   id Int @id @default(autoincrement())
   nome String 
   categorias Categoria[]
-  descricao String  
+  descricao String
+
+  rotas Rota[]  
+}
+
+model Rota {
+  id Int @id @default(autoincrement())
+  titulo String
+  descricao String
+  
+  locais Local[]
 }
