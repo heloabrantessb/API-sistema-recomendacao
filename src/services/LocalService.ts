@@ -39,4 +39,4 @@ const deletarLocal = async (id: number) => {
     })
 }
 
-export default { criarLocal, listarLocais, editarLocal, deletarLocal }
+export { criarLocal, listarLocais, editarLocal, deletarLocal }

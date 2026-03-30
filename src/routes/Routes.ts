@@ -1,5 +1,6 @@
 import { Router } from "express";
-import categoriaRoutes from './categoria.routes'
+import categorias from './categoria.routes'
+import usuarios from './usuario.routes'
 
 const router = Router();
 
@@ -10,7 +11,8 @@ router.get('/health', (req, res) => (
     })
 ));
 
-router.use('/categorias', categoriaRoutes)
+router.use('/categorias', categorias)
+router.use('/usuarios', usuarios)
 
 export default router;
 
