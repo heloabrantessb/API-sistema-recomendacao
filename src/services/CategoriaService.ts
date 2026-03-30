@@ -9,18 +9,14 @@ const criarCategoria = async (titulo: string) => {
 }
 
 const listarCategorias = async () => {
-    const categorias = await prisma.categoria.findMany({
-        select: {
-            titulo: true
-        }
-    });
+    const categorias = await prisma.categoria.findMany();
 
     return categorias
 }
 
 const editarCategoria = async (id: number, titulo?: string) => {
     const categoria = await prisma.categoria.update({
-        where: {id: Number(id)},
+        where: { id },
         data: {
             titulo
         }
@@ -31,7 +27,7 @@ const editarCategoria = async (id: number, titulo?: string) => {
 
 const deletarCategoria = async (id: number) => {
     await prisma.categoria.delete({
-        where: {id: Number(id)}
+        where: { id }
     })
 }
 

@@ -32,4 +32,5 @@ model Local {
   id Int @id @default(autoincrement())
   nome String 
   categorias Categoria[]
+  descricao String  
 }
