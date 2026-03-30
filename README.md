@@ -25,7 +25,6 @@ prisma/
   schema.prisma        # Definição do banco de dados
 .env.example           # Arquivo exemplo de variáveis de ambiente
 README.md
-Dockerfile
 docker-compose.yml
 ```
 
@@ -63,6 +62,103 @@ docker-compose.yml
 5. **Servidor**
 
    O servidor estará rodando normalmente na porta definida no `.env` (por padrão, `localhost:3000` ou semelhante).
+
+## Endpoints da API
+
+Abaixo você encontra um resumo dos principais endpoints disponíveis na aplicação.
+
+### Usuários (`/usuarios`)
+- **GET /usuarios**  
+  Lista todos os usuários cadastrados, incluindo suas preferências.
+
+- **POST /usuarios**  
+  Cria um novo usuário.  
+  **Body exemplo:**  
+  ```json
+  {
+    "nome": "Nome do Usuário",
+    "preferencias": [1, 2] // IDs das categorias
+  }
+  ```
+
+- **PUT /usuarios/:id**  
+  Edita usuário existente.  
+  **Body exemplo:**  
+  ```json
+  {
+    "nome": "Novo nome",
+    "preferencias": [2, 3]
+  }
+  ```
+
+- **DELETE /usuarios/:id**  
+  Remove um usuário do sistema.
+
+---
+
+### Categorias (`/categorias`)
+- **GET /categorias**  
+  Lista todas as categorias.
+
+- **POST /categorias**  
+  Cria uma nova categoria.  
+  **Body exemplo:**  
+  ```json
+  {
+    "titulo": "Categoria Exemplo"
+  }
+  ```
+
+- **PUT /categorias/:id**  
+  Edita uma categoria existente.
+
+- **DELETE /categorias/:id**  
+  Remove uma categoria.
+
+---
+
+### Locais (`/locais`)
+- **GET /locais**  
+  Lista todos os locais.
+
+- **POST /locais**  
+  Cria um novo local.  
+  **Body exemplo:**  
+  ```json
+  {
+    "nome": "Nome do Local",
+    "descricao": "Descrição do local",
+    "categorias": [1, 2] // IDs das categorias associadas ao local
+  }
+  ```
+
+- **PUT /locais/:id**  
+  Edita um local existente.
+
+- **DELETE /locais/:id**  
+  Remove um local.
+
+---
+
+### Rotas (`/rotas`)
+- **GET /rotas**  
+  Lista todas as rotas.
+
+- **POST /rotas**  
+  Cria uma nova rota.  
+  **Body exemplo:**  
+  ```json
+  {
+    "titulo": "Rota Exemplo",
+    "descricao": "Descrição da rota",
+    "locais": [1, 2] // IDs dos locais associados à rota
+  }
+  ```
+
+- **DELETE /rotas/:id**  
+  Remove uma rota.
+
+---
 
 6. **Parar a aplicação**
 
